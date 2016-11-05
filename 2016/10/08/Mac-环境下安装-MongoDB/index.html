@@ -106,7 +106,7 @@
 1$brew install mongodb
 当然也可以安装支持 TSL/SSL 的版本：
 1$brew install mongodb --">
-<meta property="og:updated_time" content="2016-11-05T06:39:23.000Z">
+<meta property="og:updated_time" content="2016-11-05T07:12:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 环境下安装 MongoDB">
 <meta name="twitter:description" content="由于要学习分布式数据库，所以下载了MongoDB,过程中遇到了一些坑，因此记录下来。
@@ -147,6 +147,16 @@
   
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?766bdaf132c9845902cc22a133b52cf2"";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -348,32 +358,33 @@
       
         <p>由于要学习分布式数据库，所以下载了<strong>MongoDB</strong>,过程中遇到了一些坑，因此记录下来。</p>
 <h2 id="下载与安装："><a href="#下载与安装：" class="headerlink" title="下载与安装："></a>下载与安装：</h2><p>这个没什么，通过 <strong>Homebrew</strong> 来就好了，首先更新下你的 <strong>Homebrew</strong> :</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$brew</span> update</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$brew</span> update</div></pre></td></tr></table></figure>
 <p>更新完毕后采用下面的命令安装 <strong>MongoDB</strong>:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$brew</span> install mongodb</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$brew</span> install mongodb</div></pre></td></tr></table></figure>
 <p>当然也可以安装支持 <strong>TSL/SSL</strong> 的版本：</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$brew install mongodb --<span class="keyword">with</span>-openssl</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$brew</span> install mongodb --with-openssl</div></pre></td></tr></table></figure>
 <p>或者开发版:</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$brew</span> install mongodb --devel</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$brew</span> install mongodb --devel</div></pre></td></tr></table></figure>
 <p><strong>MongoDB</strong> 的大小在270M左右，一会就下好了。</p>
 <a id="more"></a>
 <h2 id="运行-MongoDB"><a href="#运行-MongoDB" class="headerlink" title="运行 MongoDB"></a>运行 MongoDB</h2><p>首先创建个数据库目录，<strong>Mac</strong> 下会默认选择根目录下的<code>data/db</code>作为数据库目录，所以如果不喜欢折腾的可以<strong>cd</strong>到跟目录创建个可编辑的<code>data/db</code></p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mkdir</span> -p <span class="class"><span class="keyword">data</span>/db</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p data/db</div></pre></td></tr></table></figure>
 <p>笔者在用户文件夹下建立的数据库目录，这时启动 <strong>MongoDB</strong>会有差别，</p>
 <p>在根目录下：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$mongod</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$mongod</span></div></pre></td></tr></table></figure>
 <p>在用户目录下：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$mongod -<span class="params">-dbpath</span> &lt;path <span class="keyword">to</span> <span class="built_in">data</span> directory&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$mongod</span> --dbpath &lt;path to data directory&gt;</div></pre></td></tr></table></figure>
 <p>在这里可能会报个错误：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[HostnameCanonicalizationWorker]Failed <span class="keyword">to</span> obtain address information <span class="keyword">for</span> hostname BeanMacBook-Air.<span class="keyword">local</span>: nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[HostnameCanonicalizationWorker]Failed to obtain address information <span class="keyword">for</span> hostname BeanMacBook-Air.local: nodename nor servname provided, or not known</div></pre></td></tr></table></figure>
 <p>这个错误是由于域名解析处问题了，转到根目录下的 <strong>etc</strong>文件夹中找到 <strong>hosts</strong>文件，输入下列命令：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> vi hosts</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$sudo</span> vi hosts</div></pre></td></tr></table></figure>
 <p>找到<code>127.0.0.1</code>后面的<code>localhost</code>,在后面空格然后添加你报错的hostname后退出即可。</p>
 <p>中间过程中可能会遇到另一个报错：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[initandlisten] Failed <span class="keyword">to</span> <span class="keyword">set</span> <span class="keyword">up</span> sockets during startup.</div></pre></td></tr></table></figure>
-<p>这是因为启动 <strong>MongoDB</strong> 端口已经被你之前启动的 <strong>MongoDB</strong> 占用了，这时输入命令：</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ps aux | grep mongod</div><div class="line">``` </div><div class="line"></div><div class="line">来找到被 **mongod** 占用的端口，然后输入:</div></pre></td></tr></table></figure>
-<p>$kill -9 &lt;端口号&gt;<br>```</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[initandlisten] Failed to <span class="built_in">set</span> up sockets during startup.</div></pre></td></tr></table></figure>
+<p>这是因为启动 <strong>MongoDB</strong> 端口已经被你之前启动的 <strong>MongoDB</strong> 占用了，这时输入命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ps</span> aux | grep mongod</div></pre></td></tr></table></figure>
+<p>来找到被 <strong>mongod</strong> 占用的端口，然后输入:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$kill</span> -9 &lt;端口号&gt;</div></pre></td></tr></table></figure>
 <p>之后在输入<code>mongod</code>即可启动 <strong>MongoDB</strong> 了。</p>
 <h2 id="使用-MongoDB"><a href="#使用-MongoDB" class="headerlink" title="使用 MongoDB"></a>使用 MongoDB</h2><p>按照前面的步骤成功启动 <strong>MongoDB</strong> 后，即可<code>command+N</code>启动一个新的 <strong>terminal</strong>,然后键入<code>mongo</code>即可进入 <strong>MongoDB</strong> 的环境进行操作了。当然也可以在之前的 <strong>terminal</strong> 中键入<code>control+C</code>,然后键入<code>mongo</code>来进入 <strong>MongoDB</strong>的操作环境。</p>
 
@@ -446,6 +457,29 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>
@@ -734,6 +768,26 @@
   
 
   
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
   
 
