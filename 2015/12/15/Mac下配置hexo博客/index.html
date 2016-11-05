@@ -1,0 +1,611 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="Mac环境下搭建Hexo博客前天刚刚废了好大劲搭建完Wordpress的博客，结果被告知有一键安装版，心情突然很不爽，翻阅其他大神的博客时发现了一个风格很不错的博客Hexo，作为一种静态轻博客易维护易改造，直接放在Github或者Gitcafe上就好，省去了申请域名服务器配置等一大票操作，非常省心。
+下面就简要介绍下Mac环境下的安装方法。
+安装Node.js没有Node.js的用户当然要安装下N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac环境下搭建Hexo博客">
+<meta property="og:url" content="http://yoursite.com/2015/12/15/Mac下配置hexo博客/index.html">
+<meta property="og:site_name" content="Bean's Space">
+<meta property="og:description" content="Mac环境下搭建Hexo博客前天刚刚废了好大劲搭建完Wordpress的博客，结果被告知有一键安装版，心情突然很不爽，翻阅其他大神的博客时发现了一个风格很不错的博客Hexo，作为一种静态轻博客易维护易改造，直接放在Github或者Gitcafe上就好，省去了申请域名服务器配置等一大票操作，非常省心。
+下面就简要介绍下Mac环境下的安装方法。
+安装Node.js没有Node.js的用户当然要安装下N">
+<meta property="og:updated_time" content="2015-12-15T07:39:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mac环境下搭建Hexo博客">
+<meta name="twitter:description" content="Mac环境下搭建Hexo博客前天刚刚废了好大劲搭建完Wordpress的博客，结果被告知有一键安装版，心情突然很不爽，翻阅其他大神的博客时发现了一个风格很不错的博客Hexo，作为一种静态轻博客易维护易改造，直接放在Github或者Gitcafe上就好，省去了申请域名服务器配置等一大票操作，非常省心。
+下面就简要介绍下Mac环境下的安装方法。
+安装Node.js没有Node.js的用户当然要安装下N">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/12/15/Mac下配置hexo博客/"/>
+
+
+  <title> Mac环境下搭建Hexo博客 | Bean's Space </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Bean's Space</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死了，就像水消失在水中。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac环境下搭建Hexo博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-15T15:22:55+08:00" content="2015-12-15">
+              2015-12-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/丫一门外汉/" itemprop="url" rel="index">
+                    <span itemprop="name">丫一门外汉</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Mac环境下搭建Hexo博客"><a href="#Mac环境下搭建Hexo博客" class="headerlink" title="Mac环境下搭建Hexo博客"></a>Mac环境下搭建Hexo博客</h2><p>前天刚刚废了好大劲搭建完Wordpress的博客，结果被告知有一键安装版，心情突然很不爽，翻阅其他大神的博客时发现了一个风格很不错的博客Hexo，作为一种静态轻博客易维护易改造，直接放在Github或者Gitcafe上就好，省去了申请域名服务器配置等一大票操作，非常省心。</p>
+<p>下面就简要介绍下Mac环境下的安装方法。</p>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>没有Node.js的用户当然要安装下Node.js了，这个直接在官网 <a href="http://nodejs.org/" target="_blank" rel="external">http://nodejs.org/</a> 下载并安装就可以了</p>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>因为要托管到github上，作为博客的远程仓库，也相当于博客的服务器</p>
+<p>没有github帐号的直接申请就可以了，新人比较麻烦的可能在于Ssh Keys的配置，这个百度Ssh git都很容易搜到</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>打开命令行控制工具，键入 sudo npm install -g hexo</p>
+<p>然后自己建立个站点目录并进入，键入 sudo hexo init</p>
+<p>这样本地环境下的hexo博客就算配置好了，cd到你的站点目录，输入hexo generate (hexo g也可以)，然后输入hexo server(hexo s),这事命令行会显示</p>
+<p>INFO  Hexo is running at <a href="http://0.0.0.0:4000/" target="_blank" rel="external">http://0.0.0.0:4000/</a>. Press Ctrl+C to stop.</p>
+<p>打开浏览器，键入 localhost:4000 就可以看到效果了</p>
+<h3 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a>部署到Github</h3><p>首先需要在github上建立与你用户名想对应的仓库，例如我的github用户名为[beastlovezxc],因此我建立的仓库就是[beastlovezxc.github.io]，因此登录到你的github主页上新建个[your_user_name.github.io]的仓库就可以了。</p>
+<p>然后回到你的命令行，找到站点目录下的_config.yml文件，键入vi _config.yml<br>最下面有个deploy，改成以下的格式</p>
+<p>deploy:</p>
+<p>type: git</p>
+<p>repository: <a href="https://github.com/your_user_name/your_user_name.github.io.git" target="_blank" rel="external">https://github.com/your_user_name/your_user_name.github.io.git</a></p>
+<p>branch: master</p>
+<p>这里需要注意的是由于文件采用markdown语法，每个冒号后面都要加一个空格，否则会配置失败，本人就是因为在这里疏忽浪费了不少时间，还有一点就是如果hexo版本是3.0以后的type项是git，在3.0前的要改成github，至于如何查看hexo的版本号，cd到你的站点文件夹，然后键入hexo -version即可。</p>
+<p>同时注意的一点是你的github已经配置好了你的ssh key。</p>
+<h3 id="进行部署"><a href="#进行部署" class="headerlink" title="进行部署"></a>进行部署</h3><p>准备工作都已经就绪，接下来在命令行键入hexo deploy(hexo d)即可开始布置你的博客，然后在浏览器中键入<a href="http://your_user_name.github.io即可看到你部署到github上的博客了" target="_blank" rel="external">http://your_user_name.github.io即可看到你部署到github上的博客了</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/16/社交网络/" rel="prev" title="社交网络">
+                社交网络 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Bean.cb" />
+          <p class="site-author-name" itemprop="name">Bean.cb</p>
+          <p class="site-description motion-element" itemprop="description">中二青年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac环境下搭建Hexo博客"><span class="nav-number">1.</span> <span class="nav-text">Mac环境下搭建Hexo博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">1.1.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">1.2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到Github"><span class="nav-number">1.4.</span> <span class="nav-text">部署到Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行部署"><span class="nav-number">1.5.</span> <span class="nav-text">进行部署</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bean.cb</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

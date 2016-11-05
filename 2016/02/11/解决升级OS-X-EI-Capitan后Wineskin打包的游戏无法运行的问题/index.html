@@ -1,0 +1,594 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="此前苹果发布了 OS X 的新版本 EI Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局 Pro Evolution Soccer(实况足球)的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种：1 双击 .app 文件，程序是可以打开的，但是窗口始终无法显示（我的电脑）；
+2 双击 .app 文件，程序无法打开，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决升级OS X EI Capitan后Wineskin打包的游戏无法运行的问题">
+<meta property="og:url" content="http://yoursite.com/2016/02/11/解决升级OS-X-EI-Capitan后Wineskin打包的游戏无法运行的问题/index.html">
+<meta property="og:site_name" content="Bean's Space">
+<meta property="og:description" content="此前苹果发布了 OS X 的新版本 EI Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局 Pro Evolution Soccer(实况足球)的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种：1 双击 .app 文件，程序是可以打开的，但是窗口始终无法显示（我的电脑）；
+2 双击 .app 文件，程序无法打开，">
+<meta property="og:image" content="http://beastlovezxc.github.io/images/to/Wineskin.jpg">
+<meta property="og:image" content="https://beastlovezxc.github.io/images/to/WineskinAdvanced.png">
+<meta property="og:image" content="https://beastlovezxc.github.io/images/to/WineskinWinery.png">
+<meta property="og:image" content="https://beastlovezxc.github.io/images/to/WineskinWineryAdd.png">
+<meta property="og:image" content="https://beastlovezxc.github.io/images/to/WineskinAdvanceBrowse.png">
+<meta property="og:updated_time" content="2016-02-11T11:35:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决升级OS X EI Capitan后Wineskin打包的游戏无法运行的问题">
+<meta name="twitter:description" content="此前苹果发布了 OS X 的新版本 EI Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局 Pro Evolution Soccer(实况足球)的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种：1 双击 .app 文件，程序是可以打开的，但是窗口始终无法显示（我的电脑）；
+2 双击 .app 文件，程序无法打开，">
+<meta name="twitter:image" content="http://beastlovezxc.github.io/images/to/Wineskin.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/02/11/解决升级OS-X-EI-Capitan后Wineskin打包的游戏无法运行的问题/"/>
+
+
+  <title> 解决升级OS X EI Capitan后Wineskin打包的游戏无法运行的问题 | Bean's Space </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Bean's Space</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">死了，就像水消失在水中。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                解决升级OS X EI Capitan后Wineskin打包的游戏无法运行的问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-11T19:10:03+08:00" content="2016-02-11">
+              2016-02-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="此前苹果发布了-OS-X-的新版本-EI-Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局-Pro-Evolution-Soccer-实况足球-的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种："><a href="#此前苹果发布了-OS-X-的新版本-EI-Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局-Pro-Evolution-Soccer-实况足球-的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种：" class="headerlink" title="此前苹果发布了 OS X 的新版本 EI Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局 Pro Evolution Soccer(实况足球)的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种："></a>此前苹果发布了 OS X 的新版本 EI Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局 Pro Evolution Soccer(实况足球)的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种：</h5><pre><code>1 双击 .app 文件，程序是可以打开的，但是窗口始终无法显示（我的电脑）；
+2 双击 .app 文件，程序无法打开，系统提示 X11 无法打开，截图如下（同事的）：
+</code></pre><p><img src="http://beastlovezxc.github.io/images/to/Wineskin.jpg" alt="Wineskin"></p>
+<h5 id="无法在绿茵场上尽情驰骋，这种事显然不能忍，立马去-Wineskin-官网看了看，发现有一条关于-OS-X-EI-Capitan-的新闻："><a href="#无法在绿茵场上尽情驰骋，这种事显然不能忍，立马去-Wineskin-官网看了看，发现有一条关于-OS-X-EI-Capitan-的新闻：" class="headerlink" title="无法在绿茵场上尽情驰骋，这种事显然不能忍，立马去 Wineskin 官网看了看，发现有一条关于 OS X EI Capitan 的新闻："></a>无法在绿茵场上尽情驰骋，这种事显然不能忍，立马去 <a href="http://wineskin.urgesoftware.com/" target="_blank" rel="external">Wineskin</a> 官网看了看，发现有一条关于 OS X EI Capitan 的新闻：</h5><pre><code>Wineskin does not currently work correctly on El Capitan. The issue is being looked into, but I have no ETA for a fix. I&apos;ll get a fix out as soon as I can.
+
+Some people have been able to upgrade to the latest version of XQuartz, and change their wrappers to use XQuartz and not WineskinX11 and have gotten wrappers to work, but this method has not worked for everyone.
+
+Please add to the discussion here if you are helping find a solution.
+</code></pre><p>##### 又看到有一条新版本发布的新闻：</p>
+<pre><code>I&apos;ve released an update for Wineskin... version 2.6.1.
+
+I think I&apos;ve fixed all the El Capitan bugs and it should work fine on 10.6 - 10.11 now.
+
+*important point. This has to change how an engine is installed in a wrapper slightly. If you update a wrapper to 2.6.1 and it does not work right, please reinstall the engine in the wrapper. You can just use Change Engine and install the same one back in, but it will install it correctly for 2.6.1 and then things should work right. Newly made wrappers should have no issues.
+
+...
+</code></pre><h5 id="这说明官方发布的最新的-2-6-1-版本已经解决了该问题，那么剩下的问题就简单多了，我们只需要将-Wineskin-Wrapper-给替换成官方发布的最新版本即可。"><a href="#这说明官方发布的最新的-2-6-1-版本已经解决了该问题，那么剩下的问题就简单多了，我们只需要将-Wineskin-Wrapper-给替换成官方发布的最新版本即可。" class="headerlink" title="这说明官方发布的最新的 2.6.1 版本已经解决了该问题，那么剩下的问题就简单多了，我们只需要将 Wineskin Wrapper 给替换成官方发布的最新版本即可。"></a>这说明官方发布的最新的 2.6.1 版本已经解决了该问题，那么剩下的问题就简单多了，我们只需要将 Wineskin Wrapper 给替换成官方发布的最新版本即可。</h5><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h5 id="1-在应用程序中找到需要修复的游戏，右键选择-显示包内容；"><a href="#1-在应用程序中找到需要修复的游戏，右键选择-显示包内容；" class="headerlink" title="1.在应用程序中找到需要修复的游戏，右键选择 显示包内容；"></a>1.在应用程序中找到需要修复的游戏，右键选择 <code>显示包内容</code>；</h5><h5 id="2-打开-Wineskin-app，选择-advance，记录下引擎版本号"><a href="#2-打开-Wineskin-app，选择-advance，记录下引擎版本号" class="headerlink" title="2.打开 Wineskin.app，选择 advance，记录下引擎版本号"></a>2.打开 <code>Wineskin.app</code>，选择 <code>advance</code>，记录下引擎版本号</h5><p><img src="https://beastlovezxc.github.io/images/to/WineskinAdvanced.png" alt="WineskinAdvanced"></p>
+<h5 id="3-下载最新版本的-Wineskin-Winery；"><a href="#3-下载最新版本的-Wineskin-Winery；" class="headerlink" title="3.下载最新版本的 Wineskin Winery；"></a>3.下载最新版本的 <a href="http://wineskin.urgesoftware.com/tiki-index.php" target="_blank" rel="external">Wineskin Winery</a>；</h5><h5 id="4-打开-Wineskin-Winery，添加一个新的-engine，版本号最好与之前记录的版本号一致："><a href="#4-打开-Wineskin-Winery，添加一个新的-engine，版本号最好与之前记录的版本号一致：" class="headerlink" title="4.打开 Wineskin Winery，添加一个新的 engine，版本号最好与之前记录的版本号一致："></a>4.打开 <code>Wineskin Winery</code>，添加一个新的 <code>engine</code>，版本号最好与之前记录的版本号一致：</h5><p><img src="https://beastlovezxc.github.io/images/to/WineskinWinery.png" alt="WineskinWinery"></p>
+<h5 id="5-更新-Wrapper-Version-至最新版，只要在-2-6-1-以上即代表已经使用了官方修复-OS-X-EI-Capitan-问题的-Wrapper："><a href="#5-更新-Wrapper-Version-至最新版，只要在-2-6-1-以上即代表已经使用了官方修复-OS-X-EI-Capitan-问题的-Wrapper：" class="headerlink" title="5.更新 Wrapper Version 至最新版，只要在 2.6.1 以上即代表已经使用了官方修复 OS X EI Capitan 问题的 Wrapper："></a>5.更新 <code>Wrapper Version</code> 至最新版，只要在 2.6.1 以上即代表已经使用了官方修复 OS X EI Capitan 问题的 <code>Wrapper</code>：</h5><p><img src="https://beastlovezxc.github.io/images/to/WineskinWineryAdd.png" alt="WineskinWineryAdd"></p>
+<h5 id="6-选择-Create-New-Blank-Wrapper，填写游戏名称并选择-Create。如果有提示需要安装东西，都可以选择-Cancel；"><a href="#6-选择-Create-New-Blank-Wrapper，填写游戏名称并选择-Create。如果有提示需要安装东西，都可以选择-Cancel；" class="headerlink" title="6. 选择 Create New Blank Wrapper，填写游戏名称并选择 Create。如果有提示需要安装东西，都可以选择 Cancel；"></a>6. 选择 <code>Create New Blank Wrapper</code>，填写游戏名称并选择 <code>Create</code>。如果有提示需要安装东西，都可以选择 <code>Cancel</code>；</h5><h5 id="7-创建成功后，Wineskin-Winery-会提示你-Wrapper-创建成功的位置，默认是在-Applications-Wineskin-文件夹中；"><a href="#7-创建成功后，Wineskin-Winery-会提示你-Wrapper-创建成功的位置，默认是在-Applications-Wineskin-文件夹中；" class="headerlink" title="7.创建成功后，Wineskin Winery 会提示你 Wrapper 创建成功的位置，默认是在 ~/Applications/Wineskin 文件夹中；"></a>7.创建成功后，<code>Wineskin Winery</code> 会提示你 <code>Wrapper</code> 创建成功的位置，默认是在 <code>~/Applications/Wineskin</code> 文件夹中；</h5><h5 id="8-找到上一步中创建成功的-Wrapper，将原游戏-app-文件包内容中的-Content-Resources-driver-c-文件夹以及-Content-Resources-system-reg、Content-Resources-user-reg、Content-Resources-userdef-reg-这三个文件覆盖到新创建的-Wrapper-文件包内容中的-Content-Resources-文件夹中，它们分别相当于-Windows-系统中的-C-盘和注册表；"><a href="#8-找到上一步中创建成功的-Wrapper，将原游戏-app-文件包内容中的-Content-Resources-driver-c-文件夹以及-Content-Resources-system-reg、Content-Resources-user-reg、Content-Resources-userdef-reg-这三个文件覆盖到新创建的-Wrapper-文件包内容中的-Content-Resources-文件夹中，它们分别相当于-Windows-系统中的-C-盘和注册表；" class="headerlink" title="8.找到上一步中创建成功的 Wrapper，将原游戏 .app 文件包内容中的 Content/Resources/driver_c 文件夹以及 Content/Resources/system.reg、Content/Resources/user.reg、Content/Resources/userdef.reg 这三个文件覆盖到新创建的 Wrapper 文件包内容中的 Content/Resources/ 文件夹中，它们分别相当于 Windows 系统中的 C 盘和注册表；"></a>8.找到上一步中创建成功的 <code>Wrapper</code>，将原游戏 <code>.app</code> 文件包内容中的 <code>Content/Resources/driver_c</code> 文件夹以及 <code>Content/Resources/system.reg</code>、<code>Content/Resources/user.reg</code>、<code>Content/Resources/userdef.reg</code> 这三个文件覆盖到新创建的 <code>Wrapper</code> 文件包内容中的 <code>Content/Resources/</code> 文件夹中，它们分别相当于 <code>Windows</code> 系统中的 C 盘和注册表；</h5><h5 id="9-再打开我们新创建的-Wrapper-文件包内容中的-Wineskin-app，选择-advanced，然后选择程序的启动路径，即刚刚覆盖的-driver-c-文件夹中我们想要启动的-exe-程序："><a href="#9-再打开我们新创建的-Wrapper-文件包内容中的-Wineskin-app，选择-advanced，然后选择程序的启动路径，即刚刚覆盖的-driver-c-文件夹中我们想要启动的-exe-程序：" class="headerlink" title="9.再打开我们新创建的 Wrapper 文件包内容中的 Wineskin.app，选择 advanced，然后选择程序的启动路径，即刚刚覆盖的 driver_c 文件夹中我们想要启动的 exe 程序："></a>9.再打开我们新创建的 <code>Wrapper</code> 文件包内容中的 <code>Wineskin.app</code>，选择 <code>advanced</code>，然后选择程序的启动路径，即刚刚覆盖的 <code>driver_c</code> 文件夹中我们想要启动的 exe 程序：</h5><p><img src="https://beastlovezxc.github.io/images/to/WineskinAdvanceBrowse.png" alt="WineskinAdvanceBrowse"></p>
+<h5 id="10-退回到我们在第-7-步中生成新-Wineskin-Wrapper-的目录，当然现在它已经是一个完整的游戏程序了，双击运行它，然后-enjoy-it"><a href="#10-退回到我们在第-7-步中生成新-Wineskin-Wrapper-的目录，当然现在它已经是一个完整的游戏程序了，双击运行它，然后-enjoy-it" class="headerlink" title="10.退回到我们在第 7 步中生成新 Wineskin Wrapper 的目录，当然现在它已经是一个完整的游戏程序了，双击运行它，然后 enjoy it!"></a>10.退回到我们在第 7 步中生成新 <code>Wineskin Wrapper</code> 的目录，当然现在它已经是一个完整的游戏程序了，双击运行它，然后 enjoy it!</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/11/Git上fork的项目获取最新源代码/" rel="next" title="Git上fork的项目获取最新源代码">
+                <i class="fa fa-chevron-left"></i> Git上fork的项目获取最新源代码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/25/解决Playground在platform为iOS下的Logs重名问题/" rel="prev" title="解决Playground在platform为iOS下的Logs重名问题">
+                解决Playground在platform为iOS下的Logs重名问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Bean.cb" />
+          <p class="site-author-name" itemprop="name">Bean.cb</p>
+          <p class="site-description motion-element" itemprop="description">中二青年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#此前苹果发布了-OS-X-的新版本-EI-Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局-Pro-Evolution-Soccer-实况足球-的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种："><span class="nav-number">1.</span> <span class="nav-text">此前苹果发布了 OS X 的新版本 EI Capitan，系统有更新当然是立马进行升级享受新鲜事物带来的快感了，但前几天想玩耍一局 Pro Evolution Soccer(实况足球)的时候，发现我深爱的游戏再也启动不起来了，和同样爱玩儿实况的同事交流之后发现情况大致有如下两种：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无法在绿茵场上尽情驰骋，这种事显然不能忍，立马去-Wineskin-官网看了看，发现有一条关于-OS-X-EI-Capitan-的新闻："><span class="nav-number">2.</span> <span class="nav-text">无法在绿茵场上尽情驰骋，这种事显然不能忍，立马去 Wineskin 官网看了看，发现有一条关于 OS X EI Capitan 的新闻：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#这说明官方发布的最新的-2-6-1-版本已经解决了该问题，那么剩下的问题就简单多了，我们只需要将-Wineskin-Wrapper-给替换成官方发布的最新版本即可。"><span class="nav-number">3.</span> <span class="nav-text">这说明官方发布的最新的 2.6.1 版本已经解决了该问题，那么剩下的问题就简单多了，我们只需要将 Wineskin Wrapper 给替换成官方发布的最新版本即可。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决办法"><span class="nav-number"></span> <span class="nav-text">解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-在应用程序中找到需要修复的游戏，右键选择-显示包内容；"><span class="nav-number">1.</span> <span class="nav-text">1.在应用程序中找到需要修复的游戏，右键选择 显示包内容；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-打开-Wineskin-app，选择-advance，记录下引擎版本号"><span class="nav-number">2.</span> <span class="nav-text">2.打开 Wineskin.app，选择 advance，记录下引擎版本号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-下载最新版本的-Wineskin-Winery；"><span class="nav-number">3.</span> <span class="nav-text">3.下载最新版本的 Wineskin Winery；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-打开-Wineskin-Winery，添加一个新的-engine，版本号最好与之前记录的版本号一致："><span class="nav-number">4.</span> <span class="nav-text">4.打开 Wineskin Winery，添加一个新的 engine，版本号最好与之前记录的版本号一致：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-更新-Wrapper-Version-至最新版，只要在-2-6-1-以上即代表已经使用了官方修复-OS-X-EI-Capitan-问题的-Wrapper："><span class="nav-number">5.</span> <span class="nav-text">5.更新 Wrapper Version 至最新版，只要在 2.6.1 以上即代表已经使用了官方修复 OS X EI Capitan 问题的 Wrapper：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-选择-Create-New-Blank-Wrapper，填写游戏名称并选择-Create。如果有提示需要安装东西，都可以选择-Cancel；"><span class="nav-number">6.</span> <span class="nav-text">6. 选择 Create New Blank Wrapper，填写游戏名称并选择 Create。如果有提示需要安装东西，都可以选择 Cancel；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-创建成功后，Wineskin-Winery-会提示你-Wrapper-创建成功的位置，默认是在-Applications-Wineskin-文件夹中；"><span class="nav-number">7.</span> <span class="nav-text">7.创建成功后，Wineskin Winery 会提示你 Wrapper 创建成功的位置，默认是在 ~/Applications/Wineskin 文件夹中；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-找到上一步中创建成功的-Wrapper，将原游戏-app-文件包内容中的-Content-Resources-driver-c-文件夹以及-Content-Resources-system-reg、Content-Resources-user-reg、Content-Resources-userdef-reg-这三个文件覆盖到新创建的-Wrapper-文件包内容中的-Content-Resources-文件夹中，它们分别相当于-Windows-系统中的-C-盘和注册表；"><span class="nav-number">8.</span> <span class="nav-text">8.找到上一步中创建成功的 Wrapper，将原游戏 .app 文件包内容中的 Content/Resources/driver_c 文件夹以及 Content/Resources/system.reg、Content/Resources/user.reg、Content/Resources/userdef.reg 这三个文件覆盖到新创建的 Wrapper 文件包内容中的 Content/Resources/ 文件夹中，它们分别相当于 Windows 系统中的 C 盘和注册表；</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-再打开我们新创建的-Wrapper-文件包内容中的-Wineskin-app，选择-advanced，然后选择程序的启动路径，即刚刚覆盖的-driver-c-文件夹中我们想要启动的-exe-程序："><span class="nav-number">9.</span> <span class="nav-text">9.再打开我们新创建的 Wrapper 文件包内容中的 Wineskin.app，选择 advanced，然后选择程序的启动路径，即刚刚覆盖的 driver_c 文件夹中我们想要启动的 exe 程序：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-退回到我们在第-7-步中生成新-Wineskin-Wrapper-的目录，当然现在它已经是一个完整的游戏程序了，双击运行它，然后-enjoy-it"><span class="nav-number">10.</span> <span class="nav-text">10.退回到我们在第 7 步中生成新 Wineskin Wrapper 的目录，当然现在它已经是一个完整的游戏程序了，双击运行它，然后 enjoy it!</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bean.cb</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
