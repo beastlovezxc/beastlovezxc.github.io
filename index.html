@@ -333,11 +333,13 @@
 
       
         
-          
-            <p>git push每次都需要输入用户名和密码是因为你采用的是 https 方式提交代码， 如果采用的是 ssh 方式只需要在版本库中添加用户的 sha 的key就可以实现提交时无需输入用户名和密码。</p>
+          <p>git push每次都需要输入用户名和密码是因为你采用的是 https 方式提交代码， 如果采用的是 ssh 方式只需要在版本库中添加用户的 sha 的key就可以实现提交时无需输入用户名和密码。</p>
 <h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><h4 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤:"></a>详细步骤:</h4><p>如果你的版本库已经用https 方式创建好了，那么就需要先删除原来的提交方式。在终端执行以下指令：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote rm origin</div><div class="line">git remote <span class="keyword">add</span><span class="bash"> origin git@github.com:(用户名)/版本库名</span></div></pre></td></tr></table></figure></p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/04/关于-git-push-每次都需要输入用户名和密码的问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -435,8 +437,7 @@
 
       
         
-          
-            <p>由于要学习分布式数据库，所以下载了<strong>MongoDB</strong>,过程中遇到了一些坑，因此记录下来。</p>
+          <p>由于要学习分布式数据库，所以下载了<strong>MongoDB</strong>,过程中遇到了一些坑，因此记录下来。</p>
 <h2 id="下载与安装："><a href="#下载与安装：" class="headerlink" title="下载与安装："></a>下载与安装：</h2><p>这个没什么，通过 <strong>Homebrew</strong> 来就好了，首先更新下你的 <strong>Homebrew</strong> :</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$brew</span> update</span></div></pre></td></tr></table></figure>
 <p>更新完毕后采用下面的命令安装 <strong>MongoDB</strong>:</p>
@@ -446,27 +447,11 @@
 <p>或者开发版:</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$brew</span> install mongodb --devel</span></div></pre></td></tr></table></figure>
 <p><strong>MongoDB</strong> 的大小在270M左右，一会就下好了。</p>
-<h2 id="运行-MongoDB"><a href="#运行-MongoDB" class="headerlink" title="运行 MongoDB"></a>运行 MongoDB</h2><p>首先创建个数据库目录，<strong>Mac</strong> 下会默认选择根目录下的<code>data/db</code>作为数据库目录，所以如果不喜欢折腾的可以<strong>cd</strong>到跟目录创建个可编辑的<code>data/db</code></p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">mkdir</span> -p <span class="class"><span class="keyword">data</span>/db</span></div></pre></td></tr></table></figure>
-<p>笔者在用户文件夹下建立的数据库目录，这时启动 <strong>MongoDB</strong>会有差别，</p>
-<p>在根目录下：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$mongod</span></span></div></pre></td></tr></table></figure>
-<p>在用户目录下：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$mongod -<span class="params">-dbpath</span> &lt;path <span class="keyword">to</span> <span class="built_in">data</span> directory&gt;</div></pre></td></tr></table></figure>
-<p>在这里可能会报个错误：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[HostnameCanonicalizationWorker]Failed <span class="keyword">to</span> obtain address information <span class="keyword">for</span> hostname BeanMacBook-Air.<span class="keyword">local</span>: nodename nor servname provided, <span class="keyword">or</span> <span class="keyword">not</span> known</div></pre></td></tr></table></figure>
-<p>这个错误是由于域名解析处问题了，转到根目录下的 <strong>etc</strong>文件夹中找到 <strong>hosts</strong>文件，输入下列命令：</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta"><span class="meta-keyword">$sudo</span> vi hosts</span></div></pre></td></tr></table></figure>
-<p>找到<code>127.0.0.1</code>后面的<code>localhost</code>,在后面空格然后添加你报错的hostname后退出即可。</p>
-<p>中间过程中可能会遇到另一个报错：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[initandlisten] Failed <span class="keyword">to</span> <span class="keyword">set</span> <span class="keyword">up</span> sockets during startup.</div></pre></td></tr></table></figure>
-<p>这是因为启动 <strong>MongoDB</strong> 端口已经被你之前启动的 <strong>MongoDB</strong> 占用了，这时输入命令：</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ps aux | grep mongod</div><div class="line">``` </div><div class="line"></div><div class="line">来找到被 **mongod** 占用的端口，然后输入:</div></pre></td></tr></table></figure>
-<p>$kill -9 &lt;端口号&gt;<br>```</p>
-<p>之后在输入<code>mongod</code>即可启动 <strong>MongoDB</strong> 了。</p>
-<h2 id="使用-MongoDB"><a href="#使用-MongoDB" class="headerlink" title="使用 MongoDB"></a>使用 MongoDB</h2><p>按照前面的步骤成功启动 <strong>MongoDB</strong> 后，即可<code>command+N</code>启动一个新的 <strong>terminal</strong>,然后键入<code>mongo</code>即可进入 <strong>MongoDB</strong> 的环境进行操作了。当然也可以在之前的 <strong>terminal</strong> 中键入<code>control+C</code>,然后键入<code>mongo</code>来进入 <strong>MongoDB</strong>的操作环境。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/08/Mac-环境下安装-MongoDB/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -583,26 +568,14 @@
 
       
         
-          
-            <p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
+          <p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
 <h4 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h4><pre><code>Given a = 1 and b = 2, return 3.
 </code></pre><p>这本是一道简单的a+b求和问题，但是不准用到<code>+</code>和<code>-</code>,所以我们考虑使用位运算。</p>
-<p>随便举个例子，例如在计算5+9时，不进位的话5+9=4,而5+9的进位为1，和就是1*10+4 = 14。同理放到二进制中也可以采用这样的方法</p>
-<p>设有a = 4, b = 6</p>
-<pre><code>  a       0100
-  b       0110
-不进位和   0010=2
-进位和     0100=4
-</code></pre><p>然后有  </p>
-<pre><code>2         0010
-4&lt;&lt;1      1000
-不进位和   1010=10
-进位和     0000=0
-</code></pre><p>当进位为0时，不进位和为10即a+b之和</p>
-<p>Swift代码如下</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    func getSum(<span class="selector-tag">a</span>: Int, _ <span class="selector-tag">b</span>: Int) -&gt; Int &#123;</div><div class="line">        <span class="keyword">if</span> <span class="selector-tag">a</span> == <span class="number">0</span> &#123;</div><div class="line">            return <span class="selector-tag">b</span></div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span> <span class="selector-tag">b</span> == <span class="number">0</span> &#123; </div><div class="line">            return <span class="selector-tag">a</span></div><div class="line">        &#125;</div><div class="line">     <span class="selector-tag">var</span> x1 = a^bß</div><div class="line">     <span class="selector-tag">var</span> x2 = (a&amp;b)&lt;&lt;<span class="number">1</span></div><div class="line">     return getSum(x1,x2)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/25/LeetCode-371-Sum-of-Two-Integers/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -719,25 +692,14 @@
 
       
         
-          
-            <p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
+          <p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
 <h4 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h4><pre><code>Given a = 1 and b = 2, return 3.
 </code></pre><p>这本是一道简单的a+b求和问题，但是不准用到<code>+</code>和<code>-</code>,所以我们考虑使用位运算。</p>
-<p>随便举个例子，例如在计算5+9时，不进位的话5+9=4,而5+9的进位为1，和就是1*10+4 = 14。同理放到二进制中也可以采用这样的方法</p>
-<p>设有a = 4, b = 6</p>
-<pre><code>  a       0100
-  b       0110
-不进位和   0010=2
-进位和     0100=4
-</code></pre><p>然后有  </p>
-<pre><code>2         0010
-4&lt;&lt;1      1000
-不进位和   1010=10
-进位和     0000=0
-</code></pre><p>当进位为0时，不进位和为10即a+b之和</p>
-<p>Swift代码如下</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    func getSum(<span class="selector-tag">a</span>: Int, _ <span class="selector-tag">b</span>: Int) -&gt; Int &#123;</div><div class="line">        <span class="keyword">if</span> <span class="selector-tag">a</span> == <span class="number">0</span> &#123;</div><div class="line">            return <span class="selector-tag">b</span></div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span> <span class="selector-tag">b</span> == <span class="number">0</span> &#123; </div><div class="line">            return <span class="selector-tag">a</span></div><div class="line">        &#125;</div><div class="line">     <span class="selector-tag">var</span> x1 = a^bß</div><div class="line">     <span class="selector-tag">var</span> x2 = (a&amp;b)&lt;&lt;<span class="number">1</span></div><div class="line">     return getSum(x1,x2)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/25/LeetCode 371.Sum of Two Integer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -835,12 +797,13 @@
 
       
         
-          
-            <p>刚刚晚上来了个电话，来电显示是大连，看到后就音乐知道应该是关于读研的事，果然来电话的是一个女老师，说我的研究生导师还没有选，当然我还是很奇怪毕竟去年九月份研究生录取后就选了导师了，还给他们负责招生的老师发过导师选择邮件。不过毕竟我也只跟那时选的导师只联系了一次，那个老师看着口碑也特好，估计找他当导师的早就排队了吧。</p>
+          <p>刚刚晚上来了个电话，来电显示是大连，看到后就音乐知道应该是关于读研的事，果然来电话的是一个女老师，说我的研究生导师还没有选，当然我还是很奇怪毕竟去年九月份研究生录取后就选了导师了，还给他们负责招生的老师发过导师选择邮件。不过毕竟我也只跟那时选的导师只联系了一次，那个老师看着口碑也特好，估计找他当导师的早就排队了吧。</p>
 <p>不过我感觉我挺无所谓的，之前选的是数据挖掘，因为他们也只列了这一个教研室，选了当下还算热门的数据挖掘，虽然我并不喜欢。今晚找我的老师是图像处理方向的，以后的就业前景诸如算法工程师，游戏研发，虚拟现实，深度挖掘……我只说了一个最近火的不行的AlphaGo,老师说就是这个，也算是不错的一个方向，不过没有实际项目，重视理论。</p>
-<p>写作一直是硬伤，更别说论文了，还是要纠结下要不要就这么定了，毕竟来回选太麻烦了。方向前景不错，也很有意思，不过又要补一边数学……也许要有个噩梦般的读研生涯了。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/15/关于读研方向/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
