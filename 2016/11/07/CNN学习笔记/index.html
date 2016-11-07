@@ -96,15 +96,15 @@
 <meta property="og:description" content="神经元模型介绍神经网络中最基本的成分是神经元（neuron）模型。在生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会像相连的神经元发送化学物质，从而改变这些神经元的电位;如果某神经元的电位超过了一个“阈值”（threshold），那么它就会被激活，即“兴奋”起来，像其他神经元发送化学物质。将上述情形抽象一下，就得到了一直沿用至今的“M-P神经元模型“，在这个模型中，神经元接收来自n">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/M-P-neural.png">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/sigmoid.png">
-<meta property="og:image" content="http://beastlovezxc/github.io/images/CNN/neural-Network.png">
+<meta property="og:image" content="http://beastlovezxc/github.io/images/CNN/neural-network.png">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/cnn-struct.jpg">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/imageconv.gif">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/Pooling_schematic.gif">
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/Sparse-Connectivity.jpeg">
-<meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/Shared-Weights.jpeg">
+<meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/Shared-Weight.jpeg">
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/neural-net.jpg">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/Locally-Connec.jpg">
-<meta property="og:updated_time" content="2016-11-07T09:38:33.000Z">
+<meta property="og:updated_time" content="2016-11-07T09:42:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN学习笔记">
 <meta name="twitter:description" content="神经元模型介绍神经网络中最基本的成分是神经元（neuron）模型。在生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会像相连的神经元发送化学物质，从而改变这些神经元的电位;如果某神经元的电位超过了一个“阈值”（threshold），那么它就会被激活，即“兴奋”起来，像其他神经元发送化学物质。将上述情形抽象一下，就得到了一直沿用至今的“M-P神经元模型“，在这个模型中，神经元接收来自n">
@@ -384,7 +384,7 @@
 <p><img src="http://beastlovezxc.github.io/images/CNN/sigmoid.png" alt="Sigmoid"></p>
 <p>$$f(x)=\frac{1}{1+e^{-x}}$$</p>
 <p>把多个这样的神经元按一定的层次结构连接起来，就得到了神经网络。</p>
-<p><img src="http://beastlovezxc/github.io/images/CNN/neural-Network.png" alt="NeuralNetwork"></p>
+<p><img src="http://beastlovezxc/github.io/images/CNN/neural-network.png" alt="NeuralNetwork"></p>
 <h2 id="Convolutional-Neural-Networks卷积神经网络介绍"><a href="#Convolutional-Neural-Networks卷积神经网络介绍" class="headerlink" title="Convolutional Neural Networks卷积神经网络介绍"></a>Convolutional Neural Networks卷积神经网络介绍</h2><p>卷积神经网络是人工神经网络的一种，也是当前语音分析和图像识别领域的研究热点。它采用了权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。该优点在网络的输入是多维图像时表现的更加明显，使图像可以直接作为网络的输入，避免了传统识别算法中复杂的特征提取和数据重建过程。卷积网络是为识别二维形状而特殊设计的一个多层感知器，这种网络结构对平易、比例缩放、倾斜或者共他形式的变形具有高度不变性。</p>
 <h3 id="卷积神经网络的网络结构"><a href="#卷积神经网络的网络结构" class="headerlink" title="卷积神经网络的网络结构"></a>卷积神经网络的网络结构</h3><p>卷积神经网络是一个多层的神经网络，煤层由多个二维平面组成，而每个平面由多个独立神经元组成。它是为识别二维形状而特殊设计的一个多层感知器，网络的结构主要有稀疏连接和权值共享两个特点，为了在有监督方式下学会之前提到过的良好性能，网络的结构包含了如下形式的约束：</p>
 <ul>
@@ -415,11 +415,11 @@
 <p>设第m-1层为视网膜输入层，第m层的接受域的宽度为3，也就是说该层的每个单元与且仅与输入层的3个相邻的神经元相连，第m层与第m+1层具有类似的链接规则，如下图所示。</p>
 <p><img src="https://beastlovezxc.github.io/images/CNN/Sparse-Connectivity.jpeg" alt="Sparse-Connectivity"></p>
 <h4 id="权值共享-Shared-Weights"><a href="#权值共享-Shared-Weights" class="headerlink" title="权值共享(Shared Weights)"></a>权值共享(Shared Weights)</h4><p>在卷积网络中，每个稀疏过滤器hi通过共享权值都会覆盖整个可视域，这些共享权值的单元构成一个特征映射，如下图所示。</p>
-<p><img src="https://beastlovezxc.github.io/images/CNN/Shared-Weights.jpeg" alt="Shared-Weights"></p>
+<p><img src="https://beastlovezxc.github.io/images/CNN/Shared-Weight.jpeg" alt="Shared-Weights"></p>
 <p>在图中，有3个隐层单元，他们属于同一个特征映射。同种颜色的链接的权值是相同的，我们仍然可以使用梯度下降的方法来学习这些权值，只需要对原始算法做一些小的改动， 这里共享权值的梯度是所有共享参数的梯度的总和。我们不禁会问为什么要权重共享呢？一方面，重复单元能够对特征进行识别，而不考虑它在可视域中的位置。另一方面，权值 共享使得我们能更有效的进行特征抽取，因为它极大的减少了需要学习的自由变量的个数。通过控制模型的规模，卷积网络对视觉问题可以具有很好的泛化能力。</p>
 <p>之前提到过，CNN的网络结构有稀疏连接和权值共享两个特点，这样就减少了要训练的参数的个数，下面就来说明下它体现在了哪个方面。</p>
 <p><img src="https://beastlovezxc.github.io/images/CNN/neural-net.jpg" alt="NeuralNet"></p>
-<p>假设我们有一个1000x1000像素的图像，有一百万个隐层神经元，那么它们全连接的话（每个隐层神经元都连接图像的每一个像素点）就有\(1000 \times 1000 \times 1000000=10^{12}\) 个权值参数。然而图像的空间联系是局部的，就像人是通过一个局部的感受野去感受外界图像一样，每一个神经元都不需要对全局图像做感受，每个神经元只感受局部的图像区域，然后在更高层，将这些感受不同局部的神经元综合起来就可以得到全局的信息了。这样我们就可以减少连接的数目，也就是减少神经网络需要训练的权值参数的个数了。如上图右所示：加入局部感受野是 \(10 \times 10\) ,隐层每个感受野只需要与这 \(10 \times 10\) 的局部图像相连接，所以一百万个因层神经元就只有一亿个连接，即 \（10^8\) 个参数。比原来少了四个数量级，这样训练起来就没那么费力了。可是这样感觉还是有点多，还有别的办法吗？</p>
+<p>假设我们有一个1000x1000像素的图像，有一百万个隐层神经元，那么它们全连接的话（每个隐层神经元都连接图像的每一个像素点）就有\(1000 \times 1000 \times 1000000=10^{12}\) 个权值参数。然而图像的空间联系是局部的，就像人是通过一个局部的感受野去感受外界图像一样，每一个神经元都不需要对全局图像做感受，每个神经元只感受局部的图像区域，然后在更高层，将这些感受不同局部的神经元综合起来就可以得到全局的信息了。这样我们就可以减少连接的数目，也就是减少神经网络需要训练的权值参数的个数了。如上图右所示：加入局部感受野是 \(10 \times 10\) ,隐层每个感受野只需要与这 \(10 \times 10\) 的局部图像相连接，所以一百万个因层神经元就只有一亿个连接，即 \(10^8\) 个参数。比原来少了四个数量级，这样训练起来就没那么费力了。可是这样感觉还是有点多，还有别的办法吗？</p>
 <p>我们知道，隐含层的每一个神经元都连接 \(10 \times 10\) 个图像区域，也就是说每一个神经元存在\(10 \times 10 = 100\) 个连接权值参数。那如果我们每个神经元这100个参数是相同的呢？也就是说每个神经元用的是同一个卷积核去卷积图像。这样我们就只有100个参数，不管隐层的神经元个数有多少，两层间就只有100个参数，这就是权值共享。</p>
 <p>当然这样只提取了一种特征，我们需要的是提取多种特征，那么我们只要多加集中滤波器就可以了。假设我们构造了100中滤波器，每种滤波器的参数不一样，表示它提取输入图像的不同特征，例如不同的边缘。这样每种滤波器去卷积图像就得到对图像的不同特征的反映，我们称之为 Feature Map。所以 100 种卷积核就有 100 个 Feature Map。这 100 个 Feature Map 就组成了一层神经元。这时候一层的参数就有 100种卷积核 \(\times\) 每种卷积核共享 100 个参数 \(100 \times 100 = 10k\),也就是1万个参数。如下图右所示，不同的颜色表达不同的滤波器。</p>
 <p><img src="http://beastlovezxc.github.io/images/CNN/Locally-Connec.jpg" alt="Locally-Connec"></p>
