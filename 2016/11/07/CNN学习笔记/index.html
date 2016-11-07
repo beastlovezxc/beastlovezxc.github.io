@@ -96,15 +96,15 @@
 <meta property="og:description" content="神经元模型介绍神经网络中最基本的成分是神经元（neuron）模型。在生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会像相连的神经元发送化学物质，从而改变这些神经元的电位;如果某神经元的电位超过了一个“阈值”（threshold），那么它就会被激活，即“兴奋”起来，像其他神经元发送化学物质。将上述情形抽象一下，就得到了一直沿用至今的“M-P神经元模型“，在这个模型中，神经元接收来自n">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/M-P-neural.png">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/sigmoid.png">
-<meta property="og:image" content="http://beastlovezxc/github.io/images/CNN/neuralNetwork.png">
+<meta property="og:image" content="http://beastlovezxc/github.io/images/CNN/neural-Network.png">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/cnn-struct.jpg">
-<meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/imageconv/gif">
+<meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/imageconv.gif">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/Pooling_schematic.gif">
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/Sparse-Connectivity.jpeg">
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/Shared-Weights.jpeg">
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/neural-net.jpg">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/Locally-Connec.jpg">
-<meta property="og:updated_time" content="2016-11-07T09:32:49.000Z">
+<meta property="og:updated_time" content="2016-11-07T09:38:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN学习笔记">
 <meta name="twitter:description" content="神经元模型介绍神经网络中最基本的成分是神经元（neuron）模型。在生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会像相连的神经元发送化学物质，从而改变这些神经元的电位;如果某神经元的电位超过了一个“阈值”（threshold），那么它就会被激活，即“兴奋”起来，像其他神经元发送化学物质。将上述情形抽象一下，就得到了一直沿用至今的“M-P神经元模型“，在这个模型中，神经元接收来自n">
@@ -384,7 +384,7 @@
 <p><img src="http://beastlovezxc.github.io/images/CNN/sigmoid.png" alt="Sigmoid"></p>
 <p>$$f(x)=\frac{1}{1+e^{-x}}$$</p>
 <p>把多个这样的神经元按一定的层次结构连接起来，就得到了神经网络。</p>
-<p><img src="http://beastlovezxc/github.io/images/CNN/neuralNetwork.png" alt="NeuralNetwork"></p>
+<p><img src="http://beastlovezxc/github.io/images/CNN/neural-Network.png" alt="NeuralNetwork"></p>
 <h2 id="Convolutional-Neural-Networks卷积神经网络介绍"><a href="#Convolutional-Neural-Networks卷积神经网络介绍" class="headerlink" title="Convolutional Neural Networks卷积神经网络介绍"></a>Convolutional Neural Networks卷积神经网络介绍</h2><p>卷积神经网络是人工神经网络的一种，也是当前语音分析和图像识别领域的研究热点。它采用了权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。该优点在网络的输入是多维图像时表现的更加明显，使图像可以直接作为网络的输入，避免了传统识别算法中复杂的特征提取和数据重建过程。卷积网络是为识别二维形状而特殊设计的一个多层感知器，这种网络结构对平易、比例缩放、倾斜或者共他形式的变形具有高度不变性。</p>
 <h3 id="卷积神经网络的网络结构"><a href="#卷积神经网络的网络结构" class="headerlink" title="卷积神经网络的网络结构"></a>卷积神经网络的网络结构</h3><p>卷积神经网络是一个多层的神经网络，煤层由多个二维平面组成，而每个平面由多个独立神经元组成。它是为识别二维形状而特殊设计的一个多层感知器，网络的结构主要有稀疏连接和权值共享两个特点，为了在有监督方式下学会之前提到过的良好性能，网络的结构包含了如下形式的约束：</p>
 <ul>
@@ -400,7 +400,7 @@
 <h4 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h4><p>卷积是数学分析中一种重要的运算。在泛函分析中，卷积是通过两个函数f和g生成第三个函数的一种数学算子，它表征了函数f经过反转和平移的g的重叠部分的累积。卷积与数字图像有着紧密的联系。</p>
 <p>当然就是因为这些话太难懂所以很难理解卷积的具体意义。</p>
 <p>通俗一点卷积的物理意义就是一个函数（如：单位相应）在另一个函数（如：输入信号）上的加权叠加。</p>
-<p><img src="http://beastlovezxc.github.io/images/CNN/imageconv/gif" alt="imageconv"></p>
+<p><img src="http://beastlovezxc.github.io/images/CNN/imageconv.gif" alt="imageconv"></p>
 <p>上图展示了对一个5X5图像的卷积过程，通过一个3X3的卷积核在图像上移动，每当模板中心对准一个像素时，就对此像素所在邻域内的像素灰度根据模板进行加权求和，对上述图像的每个邻域依次重复上述过程，得到后边的卷积特征。</p>
 <p>对与CNN中卷积的应用这里我们套用UFLDL课程上的说法：自然图像有其固有特性，图像的一部分的统计特性与其他部分是一样的。这也意味着我们在这一部分学习的特征也能拥在另一部分上，所以对于这个图像上的所有位置，我们都能使用同样的学习特征。</p>
 <p>当从一个大尺寸图像中随机选取一小块，比如说8x8作为样本，并且从这个小块样本中学习到了一些特征，这时我们可以把从这个8x8样本中学习到的特征作为探测器，应用到这个图像的任意地方中去。特别的是我们可以用从8x8样本中所学习到的特征跟原本的大尺寸图像做卷积，从而对这个大尺寸图像上的任一位置获得一个不同特征的激活值。</p>
