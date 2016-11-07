@@ -96,7 +96,7 @@
 <meta property="og:description" content="神经元模型介绍神经网络中最基本的成分是神经元（neuron）模型。在生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会像相连的神经元发送化学物质，从而改变这些神经元的电位;如果某神经元的电位超过了一个“阈值”（threshold），那么它就会被激活，即“兴奋”起来，像其他神经元发送化学物质。将上述情形抽象一下，就得到了一直沿用至今的“M-P神经元模型“，在这个模型中，神经元接收来自n">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/M-P-neural.png">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/sigmoid.png">
-<meta property="og:image" content="http://beastlovezxc/github.io/images/CNN/neural-network.png">
+<meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/neural-network.png">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/cnn-struct.jpg">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/imageconv.gif">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/Pooling_schematic.gif">
@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/Shared-Weight.jpeg">
 <meta property="og:image" content="https://beastlovezxc.github.io/images/CNN/neural-net.jpg">
 <meta property="og:image" content="http://beastlovezxc.github.io/images/CNN/Locally-Connec.jpg">
-<meta property="og:updated_time" content="2016-11-07T09:42:17.000Z">
+<meta property="og:updated_time" content="2016-11-07T09:45:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN学习笔记">
 <meta name="twitter:description" content="神经元模型介绍神经网络中最基本的成分是神经元（neuron）模型。在生物神经网络中，每个神经元与其他神经元相连，当它“兴奋”时，就会像相连的神经元发送化学物质，从而改变这些神经元的电位;如果某神经元的电位超过了一个“阈值”（threshold），那么它就会被激活，即“兴奋”起来，像其他神经元发送化学物质。将上述情形抽象一下，就得到了一直沿用至今的“M-P神经元模型“，在这个模型中，神经元接收来自n">
@@ -384,7 +384,7 @@
 <p><img src="http://beastlovezxc.github.io/images/CNN/sigmoid.png" alt="Sigmoid"></p>
 <p>$$f(x)=\frac{1}{1+e^{-x}}$$</p>
 <p>把多个这样的神经元按一定的层次结构连接起来，就得到了神经网络。</p>
-<p><img src="http://beastlovezxc/github.io/images/CNN/neural-network.png" alt="NeuralNetwork"></p>
+<p><img src="http://beastlovezxc.github.io/images/CNN/neural-network.png" alt="NeuralNetwork"></p>
 <h2 id="Convolutional-Neural-Networks卷积神经网络介绍"><a href="#Convolutional-Neural-Networks卷积神经网络介绍" class="headerlink" title="Convolutional Neural Networks卷积神经网络介绍"></a>Convolutional Neural Networks卷积神经网络介绍</h2><p>卷积神经网络是人工神经网络的一种，也是当前语音分析和图像识别领域的研究热点。它采用了权值共享网络结构使之更类似于生物神经网络，降低了网络模型的复杂度，减少了权值的数量。该优点在网络的输入是多维图像时表现的更加明显，使图像可以直接作为网络的输入，避免了传统识别算法中复杂的特征提取和数据重建过程。卷积网络是为识别二维形状而特殊设计的一个多层感知器，这种网络结构对平易、比例缩放、倾斜或者共他形式的变形具有高度不变性。</p>
 <h3 id="卷积神经网络的网络结构"><a href="#卷积神经网络的网络结构" class="headerlink" title="卷积神经网络的网络结构"></a>卷积神经网络的网络结构</h3><p>卷积神经网络是一个多层的神经网络，煤层由多个二维平面组成，而每个平面由多个独立神经元组成。它是为识别二维形状而特殊设计的一个多层感知器，网络的结构主要有稀疏连接和权值共享两个特点，为了在有监督方式下学会之前提到过的良好性能，网络的结构包含了如下形式的约束：</p>
 <ul>
