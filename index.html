@@ -302,6 +302,116 @@
             
               
                 
+                <a class="post-title-link" href="/2020/05/01/Django-HttpResponse、render、redirect区别 及 url 变化区别/" itemprop="url">
+                  Django-HttpResponse、render、redirect区别 及 url 变化区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2020-05-01T20:48:32+08:00" content="2020-05-01">
+              2020-05-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2020/05/01/Django-HttpResponse、render、redirect区别 及 url 变化区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2020/05/01/Django-HttpResponse、render、redirect区别 及 url 变化区别/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>@<a href="Django-HttpResponse、render、redirect区别 及 url 变化区别">TOC</a></p>
+<h1 id="HttpResponse"><a href="#HttpResponse" class="headerlink" title="HttpResponse"></a>HttpResponse</h1><p>作用为内部传递一个参数，返回给浏览器<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> HttpResponse</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_request</span><span class="params">(request)</span>:</span></div><div class="line">	<span class="comment"># Todo</span></div><div class="line">	<span class="keyword">return</span> HttpResponse(<span class="string">'OK'</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="render"><a href="#render" class="headerlink" title="render"></a>render</h1><p>可接受三个参数，分别为请求request, 需要渲染的模板template,以及向模板传递的参数context，render(request, ‘template’, context)<br>原型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">render</span><span class="params">(request, template_name, context=None, content_type=None, status=None, using=None)</span>:</span></div><div class="line">    content = loader.render_to_string(template_name, context, request, using=using)</div><div class="line">    <span class="keyword">return</span> HttpResponse(content, content_type, status)</div></pre></td></tr></table></figure></p>
+<p>使用方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.shotcuts <span class="keyword">import</span> render</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_request</span><span class="params">(request)</span>:</span></div><div class="line">	<span class="comment"># Todo</span></div><div class="line">	<span class="comment"># return render(request, 'template.html', context)</span></div><div class="line">	<span class="comment"># or</span></div><div class="line">	<span class="keyword">return</span> render(request, <span class="string">'template.html'</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="redirect"><a href="#redirect" class="headerlink" title="redirect"></a>redirect</h1><p>接受一个URL参数，表示让浏览器跳转去指定的URL.<br>原型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">redirect</span><span class="params">(to, *args, permanent=False, **kwargs)</span>:</span></div><div class="line">    redirect_class = HttpResponsePermanentRedirect <span class="keyword">if</span> permanent <span class="keyword">else</span> HttpResponseRedirect</div><div class="line">    <span class="keyword">return</span> redirect_class(resolve_url(to, *args, **kwargs))</div></pre></td></tr></table></figure></p>
+<p>使用方式<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> django.shotcuts <span class="keyword">import</span> redirect</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_request</span><span class="params">(request)</span>:</span></div><div class="line">	<span class="comment"># Todo</span></div><div class="line">	<span class="keyword">return</span> redirect(request, <span class="string">'page'</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="render-与redirect-时url变化区别"><a href="#render-与redirect-时url变化区别" class="headerlink" title="render 与redirect 时url变化区别"></a>render 与redirect 时url变化区别</h1><p>urls.py中绑定了你跳转时浏览器显示的url</p>
+<p>初学时经常使用render的形式，发现url显示为当前request绑定的url,如果处理请求后结束后渲染了新的页面不过Url并没有跳转。<br>例如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># urls.py</span></div><div class="line">urlpatterns=[</div><div class="line">	path(<span class="string">'from_request/'</span>, views.from_request, name=<span class="string">'from_request'</span>)</div><div class="line">]</div><div class="line"></div><div class="line"><span class="comment"># views.py</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_request</span><span class="params">(request)</span>:</span></div><div class="line">	<span class="keyword">if</span> condition1:</div><div class="line">		<span class="keyword">return</span> render(request, <span class="string">'page1.html'</span>)</div><div class="line">	<span class="keyword">else</span> </div><div class="line">		<span class="keyword">return</span> render(request, <span class="string">'page2.html'</span>)</div></pre></td></tr></table></figure></p>
+<p>此时无论跳转page1还是page2 url的显示都会是 ==<em>yoursite/from_request</em>==</p>
+<p>这可以归类为设计的问题，及绑定的url就应该是目的渲染的html<br>但如果想要跳转时url也跟着改变即可采用redirect方式重新返回绑定的url<br>例如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># urls.py</span></div><div class="line">urlpatterns=[</div><div class="line">	path(<span class="string">'from_request/'</span>, views.from_request, name=<span class="string">'from_request'</span>),</div><div class="line">	path(<span class="string">'to_page1/'</span>, views.to_page1, name=<span class="string">'to_page1'</span>),</div><div class="line">	path(<span class="string">'to_page2/'</span>, views.to_page2, name=<span class="string">'to_page2'</span>),</div><div class="line">]</div><div class="line"></div><div class="line"><span class="comment"># views.py</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">from_request</span><span class="params">(request)</span>:</span></div><div class="line">	<span class="keyword">if</span> condition1:</div><div class="line">		<span class="keyword">return</span> redirect(<span class="string">'to_page1/'</span>)</div><div class="line">	<span class="keyword">else</span> </div><div class="line">		<span class="keyword">return</span> redirect(<span class="string">'to_page2/'</span>)</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/07/CNN学习笔记/" itemprop="url">
                   CNN学习笔记
                 </a>
@@ -743,130 +853,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/25/LeetCode 371.Sum of Two Integer/" itemprop="url">
-                  LeetCode 371.Sum of Two Integers
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-25T15:47:22+08:00" content="2016-07-25">
-              2016-07-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/刷题/" itemprop="url" rel="index">
-                    <span itemprop="name">刷题</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/25/LeetCode 371.Sum of Two Integer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/LeetCode 371.Sum of Two Integer/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.</p>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h4><pre><code>Given a = 1 and b = 2, return 3.
-</code></pre><p>这本是一道简单的a+b求和问题，但是不准用到<code>+</code>和<code>-</code>,所以我们考虑使用位运算。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/25/LeetCode 371.Sum of Two Integer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -912,7 +898,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1004,7 +990,7 @@
         <div class="copyright" >
   
   &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
